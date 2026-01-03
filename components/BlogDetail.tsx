@@ -50,7 +50,7 @@ const BlogDetail: React.FC = () => {
 
   if (!post) {
     return (
-      <section className="min-h-screen bg-slate-950 py-12 px-6 flex items-center justify-center">
+      <section className="min-h-screen bg-slate-950 pt-32 pb-12 px-6 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-3xl font-bold mb-4">Article non trouvé</h1>
           <button
@@ -65,7 +65,7 @@ const BlogDetail: React.FC = () => {
   }
 
   return (
-    <section className="min-h-screen bg-slate-950 py-12 px-6">
+    <section className="min-h-screen bg-slate-950 pt-32 pb-12 px-6">
       <div className="max-w-3xl mx-auto">
         <button
           onClick={handleBack}
