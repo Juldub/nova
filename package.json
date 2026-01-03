@@ -4,8 +4,7 @@
   "version": "1.0.0",
   "description": "Portfolio haut de gamme avec intégration Contentful et Gemini AI",
   "scripts": {
-    "start": "npx serve .",
-    "build": "echo 'No build step required for static import maps'"
+    "start": "npx serve ."
   },
   "keywords": [],
   "author": "",
