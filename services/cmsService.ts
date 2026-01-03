@@ -1,4 +1,3 @@
-
 import * as contentful from 'contentful';
 import { Project, Experience, Education, BlogPost } from '../types';
 

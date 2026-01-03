@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Project, Experience, BlogPost, Education } from './types';
 
