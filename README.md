@@ -1,40 +1,39 @@
 
-# 🚀 Déploiement de Nova Portfolio
+# 🚀 Nova Portfolio - Guide de Maintenance
 
-Ce projet est un portfolio moderne utilisant **React 19**, **Tailwind CSS**, **Contentful CMS** et l'**IA Gemini**.
+Félicitations ! Votre portfolio est prêt pour le déploiement.
 
-## 🛠 Étapes pour déployer sur GitHub & Vercel
+## 🌍 Mise en ligne (Vercel)
 
-### 1. Préparer votre dépôt GitHub
-1. Créez un nouveau dépôt sur [GitHub](https://github.com/new).
-2. Initialisez votre projet localement et poussez le code :
-   ```bash
-   git init
-   git add .
-   git commit -m "Initial commit"
-   git remote add origin https://github.com/VOTRE_PSEUDO/NOM_DU_REPO.git
-   git branch -M main
-   git push -u origin main
-   ```
-
-### 2. Déployer sur Vercel (Recommandé)
-1. Allez sur [Vercel](https://vercel.com) et connectez votre compte GitHub.
-2. Cliquez sur **"Add New" > "Project"**.
-3. Importez votre dépôt `nova-portfolio`.
-4. **IMPORTANT : Configuration des variables d'environnement**
-   Avant de cliquer sur "Deploy", ouvrez la section "Environment Variables" et ajoutez :
-   - `API_KEY` : (Votre clé API Google Gemini)
+Votre code est actuellement sur GitHub. Pour le rendre accessible :
+1. Importez ce repo sur [Vercel](https://vercel.com).
+2. Configurez les **Environment Variables** dans les réglages du projet Vercel :
+   - `API_KEY` : Votre clé Gemini. Obtenez-la gratuitement sur **[Google AI Studio](https://aistudio.google.com/)**.
    - `CONTENTFUL_SPACE_ID` : `bfdi7ts3hpm7`
    - `CONTENTFUL_ACCESS_TOKEN` : `t_wVy6eqS-XO4bgECJvk98nJQMy84Mzfx-KrNsQBGx0`
 
-5. Cliquez sur **Deploy**. Votre site sera en ligne en quelques secondes !
+## 🛠 Maintenance du contenu (Contentful)
 
-## 📝 Rappel : Contentful
-Assurez-vous d'avoir créé les types de contenu suivants dans votre espace Contentful pour que les données s'affichent :
-- `project` (ID)
-- `experience` (ID)
-- `education` (ID)
-- `blogPost` (ID)
+Pour modifier vos projets, expériences ou articles de blog sans toucher au code :
+1. Connectez-vous à votre espace [Contentful](https://app.contentful.com).
+2. Allez dans l'onglet **"Content"**.
+3. Modifiez ou ajoutez des entrées pour :
+   - **Project** : Titre, description, tags, image.
+   - **Experience** : Entreprise, rôle, période.
+   - **BlogPost** : Titre, contenu, date, catégorie.
+4. Cliquez sur **Publish**. Les changements apparaîtront instantanément sur votre site.
 
 ## 🤖 Studio Créatif
-Le studio utilise le modèle `gemini-2.5-flash-image` pour l'édition d'images par IA. Assurez-vous que votre clé API a les droits nécessaires.
+Le Creative Studio utilise l'IA de Google (Gemini 2.5 Flash Image) pour transformer vos photos. 
+- **Prompt conseillé** : "Ajoute un style futuriste", "Transforme en peinture à l'huile", "Ajoute des néons".
+
+## 📦 Mise à jour du code
+Pour mettre à jour le design :
+1. Modifiez les fichiers localement.
+2. Envoyez les changements :
+   ```bash
+   git add .
+   git commit -m "Mise à jour du design"
+   git push origin main
+   ```
+3. Vercel déploiera la nouvelle version automatiquement.
