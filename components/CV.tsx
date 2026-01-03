@@ -24,27 +24,21 @@ const CV: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-12 gap-16">
           <div className="lg:col-span-5">
-            <h2 className="text-4xl font-bold mb-8">Career Journey</h2>
+            <h2 className="text-4xl font-bold mb-8">Parcours pro</h2>
             <p className="text-slate-400 mb-12 text-lg">
-              Passionate about building scalable frontend systems and pushing the boundaries of what's possible on the web.
+              J'ai commencé par 3 années de conseils en AMOA (Sodexo, AXA) avant de devenir freelance sur des missions d'API Manager, Product Owner (AXA, ANS, JCDecaux) avant de prendre un poste de PM en interne chez Keolis Santé depuis Janvier 2021.
             </p>
             <div className="space-y-4">
               <div className="glass-morphism p-6 rounded-2xl">
-                <h4 className="font-bold text-lg mb-4 text-purple-400">Technical Skills</h4>
+                <h4 className="font-bold text-lg mb-4 text-purple-400">Compétences</h4>
                 <div className="flex flex-wrap gap-2">
-                  {['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'GraphQL', 'Redux', 'D3.js', 'Jest', 'Node.js'].map(skill => (
+                  {['Product Management', 'Gestion de projets', 'Méthodologies agiles', 'Data viz', 'Leadership', 'Problem solver', 'Medtech', 'SaaS', 'IA'].map(skill => (
                     <span key={skill} className="bg-slate-800 px-3 py-1 rounded text-sm font-medium">
                       {skill}
                     </span>
                   ))}
                 </div>
               </div>
-              <button className="w-full bg-white text-slate-950 py-4 rounded-xl font-bold hover:bg-slate-200 transition-colors flex items-center justify-center space-x-2">
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                </svg>
-                <span>Download Resume (PDF)</span>
-              </button>
             </div>
           </div>
 

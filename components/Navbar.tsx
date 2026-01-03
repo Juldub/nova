@@ -55,8 +55,9 @@ const Navbar: React.FC = () => {
               navigate('/');
             }
           }}
-          className="text-2xl font-bold tracking-tighter"
+          className="text-2xl font-bold tracking-tighter flex items-center"
         >
+          <img src="/favicon.svg" alt="JD" className="w-8 h-8 mr-3" aria-hidden="false" />
           Juldub
         </a>
         <div className="hidden md:flex space-x-8">

@@ -19,7 +19,7 @@ const Blog: React.FC = () => {
     <section id="blog" className="py-24 bg-slate-950">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex justify-between items-center mb-16">
-          <h2 className="text-4xl font-bold">Insights & Thoughts</h2>
+          <h2 className="text-4xl font-bold">Blog</h2>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8">

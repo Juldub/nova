@@ -20,9 +20,9 @@ const Portfolio: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div>
-            <h2 className="text-4xl font-bold mb-4">Selected Works</h2>
+            <h2 className="text-4xl font-bold mb-4">Portfolio</h2>
             <p className="text-slate-400 max-w-xl">
-              A curated collection of projects fetched from our Headless CMS.
+              Voici une selection de mes derniers projets.
             </p>
           </div>
         </div>
@@ -57,7 +57,7 @@ const Portfolio: React.FC = () => {
                     {project.description}
                   </p>
                   <a href="#" className="inline-flex items-center text-sm font-bold text-white group-hover:text-purple-400 transition-colors">
-                    Case Study 
+                    En savoir plus
                     <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>

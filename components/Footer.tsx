@@ -9,23 +9,15 @@ const Footer: React.FC = () => {
             Let's build something <br />
             <span className="gradient-text">legendary together.</span>
           </h2>
-          <a 
-            href="mailto:hello@novastudio.com" 
-            className="text-2xl md:text-3xl font-medium text-white hover:text-purple-400 transition-colors border-b-2 border-slate-800 pb-2"
-          >
-            hello@novastudio.com
-          </a>
         </div>
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-8 pt-12 border-t border-slate-900">
           <p className="text-slate-500 text-sm">
-            © {new Date().getFullYear()} Nova Studio. Built with React.
+            © {new Date().getFullYear()} Juldub. Vibecodé by Claude (Haiku 4.5 🙏)
           </p>
           <div className="flex space-x-6 text-sm font-medium text-slate-400">
-            <a href="#" className="hover:text-white transition-colors">GitHub</a>
-            <a href="#" className="hover:text-white transition-colors">LinkedIn</a>
-            <a href="#" className="hover:text-white transition-colors">Twitter</a>
-            <a href="#" className="hover:text-white transition-colors">Dribbble</a>
+            <a href="https://github.com/Juldub" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub</a>
+            <a href="https://www.linkedin.com/in/julien-dubois/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
           </div>
         </div>
       </div>

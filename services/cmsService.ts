@@ -45,14 +45,15 @@ export class CMSService {
     try {
       const response = await client.getEntries({ 
         content_type: 'experience', 
-        order: '-sys.createdAt'
+        order: 'fields.ordre'
       });
       return response.items.map((item: any) => ({
         id: item.sys.id,
         company: item.fields.company || 'Unknown Company',
         role: item.fields.role || 'Professional',
         period: item.fields.period || '',
-        description: item.fields.description || ''
+        description: item.fields.description || '',
+        ordre: item.fields.ordre
       }));
     } catch (error) {
       console.error("Contentful Error (Experience):", error);

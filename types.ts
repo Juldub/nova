@@ -14,6 +14,7 @@ export interface Experience {
   role: string;
   period: string;
   description: string;
+  ordre?: number;
 }
 
 export interface BlogPost {
