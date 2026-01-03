@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
 
         <div className="flex flex-col md:flex-row justify-between items-center gap-8 pt-12 border-t border-slate-900">
           <p className="text-slate-500 text-sm">
-            © {new Date().getFullYear()} Nova Studio. Built with React & Gemini.
+            © {new Date().getFullYear()} Nova Studio. Built with React.
           </p>
           <div className="flex space-x-6 text-sm font-medium text-slate-400">
             <a href="#" className="hover:text-white transition-colors">GitHub</a>

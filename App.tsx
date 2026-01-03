@@ -5,7 +5,6 @@ import Hero from './components/Hero';
 import Portfolio from './components/Portfolio';
 import CV from './components/CV';
 import Blog from './components/Blog';
-import ImageEditor from './components/ImageEditor';
 import Footer from './components/Footer';
 
 const App: React.FC = () => {
@@ -17,7 +16,6 @@ const App: React.FC = () => {
         <Portfolio />
         <CV />
         <Blog />
-        <ImageEditor />
       </main>
       <Footer />
     </div>
