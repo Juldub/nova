@@ -39,7 +39,7 @@ const BlogDetail: React.FC = () => {
         <div className="text-center">
           <h1 className="text-3xl font-bold mb-4">Article non trouvé</h1>
           <button
-            onClick={() => navigate('/#blog')}
+            onClick={() => navigate(-1)}
             className="text-purple-400 hover:text-purple-300 transition-colors"
           >
             Retour aux articles
@@ -53,7 +53,7 @@ const BlogDetail: React.FC = () => {
     <section className="min-h-screen bg-slate-950 py-12 px-6">
       <div className="max-w-3xl mx-auto">
         <button
-          onClick={() => navigate('/#blog')}
+          onClick={() => navigate(-1)}
           className="mb-8 flex items-center space-x-2 text-slate-400 hover:text-white transition-colors"
         >
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
