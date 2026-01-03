@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { BlogPost } from '../types';
 import { cmsService } from '../services/cmsService';
 import { Skeleton } from './Skeleton';
@@ -7,8 +7,14 @@ import { Skeleton } from './Skeleton';
 const BlogDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
+  const location = useLocation();
   const [post, setPost] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Scroll to top when article loads
+    window.scrollTo(0, 0);
+  }, [slug]);
 
   useEffect(() => {
     cmsService.getBlogPosts().then(posts => {
@@ -19,6 +25,15 @@ const BlogDetail: React.FC = () => {
       setLoading(false);
     });
   }, [slug]);
+
+  const handleBack = () => {
+    // If there's history, go back, otherwise go to home
+    if (window.history.length > 1) {
+      navigate(-1);
+    } else {
+      navigate('/#blog');
+    }
+  };
 
   if (loading) {
     return (
@@ -39,7 +54,7 @@ const BlogDetail: React.FC = () => {
         <div className="text-center">
           <h1 className="text-3xl font-bold mb-4">Article non trouvé</h1>
           <button
-            onClick={() => navigate(-1)}
+            onClick={handleBack}
             className="text-purple-400 hover:text-purple-300 transition-colors"
           >
             Retour aux articles
@@ -53,7 +68,7 @@ const BlogDetail: React.FC = () => {
     <section className="min-h-screen bg-slate-950 py-12 px-6">
       <div className="max-w-3xl mx-auto">
         <button
-          onClick={() => navigate(-1)}
+          onClick={handleBack}
           className="mb-8 flex items-center space-x-2 text-slate-400 hover:text-white transition-colors"
         >
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
