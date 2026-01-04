@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route, useLocation, useNavigate } from
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Portfolio from './components/Portfolio';
+import ProjectDetail from './components/ProjectDetail';
 import CV from './components/CV';
 import Blog from './components/Blog';
 import BlogDetail from './components/BlogDetail';
@@ -56,6 +57,13 @@ const App: React.FC = () => {
           <div className="bg-slate-950 selection:bg-purple-500/30">
             <Navbar />
             <BlogDetail />
+            <Footer />
+          </div>
+        } />
+        <Route path="/portfolio/:slug" element={
+          <div className="bg-slate-950 selection:bg-purple-500/30">
+            <Navbar />
+            <ProjectDetail />
             <Footer />
           </div>
         } />
