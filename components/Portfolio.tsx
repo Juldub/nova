@@ -1,6 +1,6 @@
 
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import Card from './Card';
 import { Project } from '../types';
 import { cmsService } from '../services/cmsService';
 import { ProjectSkeleton } from './Skeleton';
@@ -39,39 +39,22 @@ const Portfolio: React.FC = () => {
             projects.map((project) => {
               const slug = project.title.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
               return (
-                <Link
+                <Card
                   key={project.id}
                   to={`/portfolio/${slug}`}
-                  className="group glass-morphism rounded-3xl overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 block focus:outline-none focus:ring-2 focus:ring-purple-400"
-                  tabIndex={0}
+                  imageUrl={project.imageUrl}
+                  imageAlt={project.title}
+                  title={project.title}
+                  description={project.description}
+                  tags={project.tags}
                 >
-                  <div className="aspect-[4/3] overflow-hidden">
-                    <img 
-                      src={project.imageUrl} 
-                      alt={project.title} 
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
-                    />
-                  </div>
-                  <div className="p-8">
-                    <div className="flex gap-2 mb-4">
-                      {project.tags.map(tag => (
-                        <span key={tag} className="text-[10px] font-bold uppercase tracking-widest text-purple-400 bg-purple-500/10 px-2 py-1 rounded">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    <h3 className="text-xl font-bold mb-2 group-hover:text-purple-400 transition-colors">{project.title}</h3>
-                    <p className="text-slate-400 text-sm mb-6 leading-relaxed">
-                      {project.description}
-                    </p>
-                    <span className="inline-flex items-center text-sm font-bold text-white group-hover:text-purple-400 transition-colors">
-                      En savoir plus
-                      <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                      </svg>
-                    </span>
-                  </div>
-                </Link>
+                  <span className="inline-flex items-center text-sm font-bold text-white group-hover:text-purple-400 transition-colors">
+                    En savoir plus
+                    <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </span>
+                </Card>
               );
             })
           )}
