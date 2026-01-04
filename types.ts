@@ -6,6 +6,7 @@ export interface Project {
   tags: string[];
   imageUrl: string;
   link?: string;
+  ordre?: number;
 }
 
 export interface Experience {

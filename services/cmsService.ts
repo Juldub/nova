@@ -33,7 +33,8 @@ export class CMSService {
         description: item.fields.description || '',
         tags: item.fields.tags || [],
         imageUrl: this.mapAsset(item.fields.image),
-        link: item.fields.link
+        link: item.fields.link,
+        ordre: item.fields.ordre
       }));
     } catch (error) {
       console.error("Contentful Error (Projects):", error);
