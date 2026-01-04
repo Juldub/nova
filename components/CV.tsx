@@ -5,6 +5,7 @@ import { Skeleton } from './Skeleton';
 
 const CV: React.FC = () => {
   const [experience, setExperience] = useState<Experience[]>([]);
+  const [showAllExp, setShowAllExp] = useState(false);
   const [education, setEducation] = useState<Education[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -24,15 +25,33 @@ const CV: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-12 gap-16">
           <div className="lg:col-span-5">
-            <h2 className="text-4xl font-bold mb-8">Parcours pro</h2>
+            <h2 className="text-4xl font-bold mb-8">Parcours</h2>
             <p className="text-slate-400 mb-12 text-lg">
-              J'ai commencé par 3 années de conseils en AMOA (Sodexo, AXA) avant de devenir freelance sur des missions d'API Manager, Product Owner (AXA, ANS, JCDecaux) avant de prendre un poste de PM en interne chez Keolis Santé depuis Janvier 2021.
+              J'ai construit mon expertise en 3 temps :
+              <span className="text-blue-400 font-semibold"> apprendre </span>
+              le conseil auprès de grands comptes (Sodexo, AXA),
+              <span className="text-green-400 font-semibold"> affiner </span>
+              mes compétences tech en freelance (API & Product chez AXA, JCDecaux, ANS), puis
+              <span className="text-pink-400 font-semibold"> piloter </span>
+              la transformation digitale chez Keolis Santé depuis 2021.
             </p>
             <div className="space-y-4">
-              <div className="glass-morphism p-6 rounded-2xl">
-                <h4 className="font-bold text-lg mb-4 text-purple-400">Compétences</h4>
+              {/* Soft skills */}
+              <div className="glass-morphism p-6 rounded-2xl mb-4">
+                <h4 className="font-bold text-lg mb-4 text-purple-400">Soft skills</h4>
                 <div className="flex flex-wrap gap-2">
-                  {['Product Management', 'Gestion de projets', 'Méthodologies agiles', 'Data viz', 'Leadership', 'Problem solver', 'Medtech', 'SaaS', 'IA'].map(skill => (
+                  {['Leadership', 'Gestion de projets', 'Méthodologies agiles', 'Problem solver', 'Communication', 'Adaptabilité', 'Esprit d’équipe', 'Créativité'].map(skill => (
+                    <span key={skill} className="bg-slate-800 px-3 py-1 rounded text-sm font-medium">
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              {/* Hard skills */}
+              <div className="glass-morphism p-6 rounded-2xl">
+                <h4 className="font-bold text-lg mb-4 text-green-400">Hard skills</h4>
+                <div className="flex flex-wrap gap-2">
+                  {['Product Management', 'Data viz', 'Medtech', 'SaaS', 'IA', 'powerBI', 'SQL', 'Postman', 'UX/UI', 'vibecoding'].map(skill => (
                     <span key={skill} className="bg-slate-800 px-3 py-1 rounded text-sm font-medium">
                       {skill}
                     </span>
@@ -51,6 +70,7 @@ const CV: React.FC = () => {
                 Experience
               </h3>
               <div className="space-y-8 border-l-2 border-slate-800 ml-4 pl-8">
+                
                 {loading ? (
                   [1, 2].map(i => (
                     <div key={i} className="space-y-2 pb-8">
@@ -60,17 +80,39 @@ const CV: React.FC = () => {
                     </div>
                   ))
                 ) : experience.length > 0 ? (
-                  experience.map(job => (
-                    <div key={job.id} className="relative">
-                      <div className="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-slate-950 border-2 border-blue-500"></div>
-                      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
-                        <h4 className="text-xl font-bold text-white">{job.role}</h4>
-                        <span className="text-sm font-medium text-slate-500">{job.period}</span>
+                  <>
+                    {(showAllExp ? experience : experience.slice(0, 2)).map(job => (
+                      <div key={job.id} className="relative">
+                        <div className="absolute -left-[41px] top-1 w-4 h-4 rounded-full bg-slate-950 border-2 border-blue-500"></div>
+                        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center mb-2">
+                          <h4 className="text-xl font-bold text-white">{job.role}</h4>
+                          <span className="text-sm font-medium text-slate-500">{job.period}</span>
+                        </div>
+                        <p className="text-blue-400 font-medium mb-4">{job.company}</p>
+                        <p className="text-slate-400 leading-relaxed">{job.description}</p>
                       </div>
-                      <p className="text-blue-400 font-medium mb-4">{job.company}</p>
-                      <p className="text-slate-400 leading-relaxed">{job.description}</p>
-                    </div>
-                  ))
+                    ))}
+                    {!showAllExp && experience.length > 2 && (
+                      <div className="flex justify-center mt-2">
+                        <button
+                          className="px-4 py-1 rounded-full bg-slate-800 text-slate-300 text-sm font-medium hover:bg-slate-700 transition-colors border border-slate-700"
+                          onClick={() => setShowAllExp(true)}
+                        >
+                          Voir plus
+                        </button>
+                      </div>
+                    )}
+                    {showAllExp && experience.length > 2 && (
+                      <div className="flex justify-center mt-2">
+                        <button
+                          className="px-4 py-1 rounded-full bg-slate-800 text-slate-300 text-sm font-medium hover:bg-slate-700 transition-colors border border-slate-700"
+                          onClick={() => setShowAllExp(false)}
+                        >
+                          Voir moins
+                        </button>
+                      </div>
+                    )}
+                  </>
                 ) : (
                   <p className="text-slate-500 italic">No experience entries found in Contentful.</p>
                 )}

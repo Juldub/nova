@@ -9,6 +9,7 @@ import CV from './components/CV';
 import Blog from './components/Blog';
 import BlogDetail from './components/BlogDetail';
 import Footer from './components/Footer';
+import NotFound from './components/NotFound';
 
 const HomeInner: React.FC = () => {
   const location = useLocation();
@@ -67,6 +68,7 @@ const App: React.FC = () => {
             <Footer />
           </div>
         } />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );
