@@ -1,3 +1,10 @@
+/* Désactive les guillemets automatiques sur les balises code dans la prose Tailwind Typography */
+.prose code::before,
+.prose code::after,
+.prose-invert code::before,
+.prose-invert code::after {
+  content: none !important;
+}
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

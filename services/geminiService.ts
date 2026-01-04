@@ -1,11 +1,13 @@
 
-// import supprimé : GoogleGenAI
 
-export class GeminiService {
-  // propriété supprimée : ai
+
+
+  // ATTENTION : la propriété 'ai' doit être initialisée avec le SDK Gemini approprié.
+  // Actuellement, ce service n'est pas fonctionnel sans cette initialisation.
+  // À compléter selon l'intégration réelle de l'API Gemini.
 
   constructor() {
-    // suppression de l'initialisation de GoogleGenAI
+    // TODO: Initialiser 'this.ai' avec le client Gemini si besoin.
   }
 
   async editImage(base64Image: string, prompt: string): Promise<string | null> {

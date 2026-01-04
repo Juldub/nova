@@ -41,7 +41,7 @@ const ProjectDetail: React.FC = () => {
         </div>
         <h1 className="text-4xl font-bold mb-4">{project.title}</h1>
         <div className="flex flex-wrap gap-2 mb-6">
-          {project.tags.map(tag => (
+          {Array.isArray(project.tags) && project.tags.map(tag => (
             <span key={tag} className="text-xs font-bold uppercase tracking-widest text-purple-400 bg-purple-500/10 px-2 py-1 rounded">
               {tag}
             </span>
