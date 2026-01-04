@@ -1,12 +1,43 @@
 
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
+// Animation du mot qui change dynamiquement
+const AnimatedWord: React.FC<{ words: string[]; interval?: number }> = ({ words, interval = 1800 }) => {
+  const [index, setIndex] = useState(0);
+  const [anim, setAnim] = useState(false);
+  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    timeoutRef.current = setTimeout(() => {
+      setAnim(true);
+      setTimeout(() => {
+        setIndex((i) => (i + 1) % words.length);
+        setAnim(false);
+      }, 350); // durée de l'animation
+    }, interval);
+    return () => {
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, [index, interval, words.length]);
+
+  return (
+    <span
+      className={`transition-transform duration-300 inline-block ${anim ? 'translate-y-6 opacity-0' : 'translate-y-0 opacity-100'}`}
+      style={{ minWidth: 48, textAlign: 'left' }}
+    >
+      {words[index]}
+    </span>
+  );
+};
 const Hero: React.FC = () => {
   return (
     <section className="pt-32 pb-20 px-6">
       <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
-        <div className="inline-block px-4 py-1.5 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-sm font-semibold mb-8 animate-fade-in">
-          Bienvenue sur mon site
+        <div className="inline-block px-3 py-1 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-400 text-sm font-semibold mb-8 animate-fade-in">
+          Bienvenue sur mon
+          <span className="inline-block relative w-12 h-5 align-middle mx-1">
+            <AnimatedWord words={["site", "blog", "CV", "portfolio"]} />
+          </span>
         </div>
         <h1 className="text-5xl md:text-8xl font-extrabold tracking-tight mb-8 leading-tight">
           Hey <span role="img" aria-label="wave">👋🏽</span>
@@ -34,5 +65,6 @@ const Hero: React.FC = () => {
     </section>
   );
 };
+
 
 export default Hero;
