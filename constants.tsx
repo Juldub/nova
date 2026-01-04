@@ -55,7 +55,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     id: 'b1',
     title: 'The Future of AI-Driven Design',
-    excerpt: 'How generative models are reshaping the way we think about UI/UX layout and prototyping.',
+    // excerpt supprimé
     date: 'Oct 12, 2023',
     category: 'Design',
     imageUrl: 'https://picsum.photos/seed/ai/800/450'
@@ -63,7 +63,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     id: 'b2',
     title: 'Mastering TypeScript Generics',
-    excerpt: 'Deep dive into advanced typing techniques for building robust, reusable components.',
+    // excerpt supprimé
     date: 'Sep 24, 2023',
     category: 'Tech',
     imageUrl: 'https://picsum.photos/seed/ts/800/450'

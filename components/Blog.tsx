@@ -41,7 +41,7 @@ const Blog: React.FC = () => {
                     imageUrl={post.imageUrl}
                     imageAlt={post.title}
                     title={post.title}
-                    description={post.excerpt}
+                    // description supprimée car excerpt n'existe plus
                     tags={[post.category, post.date]}
                   >
                     <span className="inline-flex items-center text-sm font-bold text-white group-hover:text-purple-400 transition-colors">

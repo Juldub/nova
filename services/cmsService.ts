@@ -31,7 +31,6 @@ export class CMSService {
         id: item.sys.id,
         title: item.fields.title || 'Untitled Project',
         description: item.fields.description || '',
-        tags: item.fields.tags || [],
         imageUrl: this.mapAsset(item.fields.image),
         link: item.fields.link,
         ordre: item.fields.ordre
@@ -89,11 +88,10 @@ export class CMSService {
       return response.items.map((item: any) => ({
         id: item.sys.id,
         title: item.fields.title || 'Untitled Post',
-        excerpt: item.fields.excerpt || '',
-        content: item.fields.content || '',
         date: item.fields.date ? new Date(item.fields.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) : '',
         category: item.fields.category || 'General',
-        imageUrl: this.mapAsset(item.fields.image)
+        imageUrl: this.mapAsset(item.fields.image),
+        richText: item.fields.richText || undefined
       }));
     } catch (error) {
       console.error("Contentful Error (Blog):", error);

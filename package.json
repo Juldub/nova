@@ -9,6 +9,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@contentful/rich-text-react-renderer": "^16.1.6",
+    "@tailwindcss/typography": "^0.5.19",
     "autoprefixer": "^10.4.23",
     "contentful": "^10.0.0",
     "nprogress": "^0.2.0",

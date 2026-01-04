@@ -1,5 +1,7 @@
+
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate, useLocation } from 'react-router-dom';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import { useParams, useNavigate } from 'react-router-dom';
 import { BlogPost } from '../types';
 import { cmsService } from '../services/cmsService';
 import { Skeleton } from './Skeleton';
@@ -7,12 +9,10 @@ import { Skeleton } from './Skeleton';
 const BlogDetail: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
-  const location = useLocation();
   const [post, setPost] = useState<BlogPost | null>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // Scroll to top when article loads
     window.scrollTo(0, 0);
   }, [slug]);
 
@@ -69,31 +69,30 @@ const BlogDetail: React.FC = () => {
           ← Retour à l’accueil
         </button>
 
-        <img 
-          src={post.imageUrl} 
-          alt={post.title}
-          className="w-full aspect-video object-cover rounded-2xl mb-8"
-        />
+        {post.imageUrl && (
+          <img 
+            src={post.imageUrl} 
+            alt={post.title}
+            className="w-full aspect-video object-cover rounded-2xl mb-8"
+          />
+        )}
 
         <div className="mb-8">
           <div className="flex items-center space-x-4 text-xs font-bold uppercase tracking-widest mb-4">
-            <span className="text-purple-400">{post.category}</span>
-            <span className="text-slate-600">•</span>
-            <span className="text-slate-500">{post.date}</span>
+            {post.category && <span className="text-purple-400">{post.category}</span>}
+            {post.category && <span className="text-slate-600">•</span>}
+            {post.date && <span className="text-slate-500">{post.date}</span>}
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
             {post.title}
           </h1>
-          <p className="text-lg text-slate-300 leading-relaxed mb-8">
-            {post.excerpt}
-          </p>
         </div>
 
-        <div className="prose prose-invert max-w-none">
-          <div className="text-slate-300 leading-relaxed space-y-4 whitespace-pre-wrap">
-            {post.content}
+        {post.richText && (
+          <div className="prose prose-invert max-w-2xl mx-auto">
+            {documentToReactComponents(post.richText)}
           </div>
-        </div>
+        )}
       </div>
     </section>
   );
