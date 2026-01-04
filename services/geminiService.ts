@@ -1,11 +1,11 @@
 
-import { GoogleGenAI } from "@google/genai";
+// import supprimé : GoogleGenAI
 
 export class GeminiService {
-  private ai: GoogleGenAI;
+  // propriété supprimée : ai
 
   constructor() {
-    this.ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
+    // suppression de l'initialisation de GoogleGenAI
   }
 
   async editImage(base64Image: string, prompt: string): Promise<string | null> {

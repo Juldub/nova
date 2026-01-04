@@ -9,7 +9,7 @@ const Hero: React.FC = () => {
           Bienvenue sur mon site
         </div>
         <h1 className="text-5xl md:text-8xl font-extrabold tracking-tight mb-8 leading-tight">
-          Hey <span role="img" aria-label="wave">👋🏽👋🏽</span>
+          Hey <span role="img" aria-label="wave">👋🏽</span>
         </h1>
         <div className="w-full max-w-md h-1 rounded-full mb-8" aria-hidden>
           <div className="h-1 rounded-full" style={{ background: 'linear-gradient(90deg,#60a5fa,#a855f7,#ec4899)' }} />

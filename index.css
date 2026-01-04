@@ -3,9 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  * {
-    @apply border-border;
-  }
+  /* Suppression de @apply border-border qui n'existe pas dans Tailwind par défaut */
   
   body {
     @apply bg-slate-950 text-slate-100;
